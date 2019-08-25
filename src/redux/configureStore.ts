@@ -1,20 +1,20 @@
 import * as Redux from 'redux';
 import * as ReduxDevtools from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import reducer from './reducers/starsReducer';
+import { IState } from './reducers/types';
 
-// import postsReducer from './reducers/posts';
-// import sendCommentReducer from './reducers/sendComment';
+const INITIAL_STATE: IState = {
+  isFetching: false,
+  hasErrors: false,
+  starsInfo: []
+};
 
-const rootReducer = Redux.combineReducers({
-//   posts: postsReducer,
-//   sendComment: sendCommentReducer
-});
+const configureStore = Redux.createStore(
+    reducer,
+    INITIAL_STATE,
+    ReduxDevtools.composeWithDevTools(Redux.applyMiddleware(thunk, logger))
+);
 
-export type IAppState = ReturnType<typeof rootReducer>;
-
-export default function configureStore() {
-  return Redux.createStore(
-    rootReducer,
-    ReduxDevtools.composeWithDevTools(Redux.applyMiddleware(thunk))
-  );
-}
+export default configureStore;
