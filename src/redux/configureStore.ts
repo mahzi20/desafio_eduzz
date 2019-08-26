@@ -1,20 +1,14 @@
-import * as Redux from 'redux';
-import * as ReduxDevtools from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import reducer from './reducers/starsReducer';
-import { IState } from './reducers/types';
+import * as Redux from 'redux'
+import * as ReduxDevtools from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import starsReducer from './reducers/starsReducer'
 
-const INITIAL_STATE: IState = {
-  isFetching: false,
-  hasErrors: false,
-  starsInfo: []
-};
+export type IAppState = ReturnType<typeof starsReducer>
 
 const configureStore = Redux.createStore(
-    reducer,
-    INITIAL_STATE,
+    starsReducer,
     ReduxDevtools.composeWithDevTools(Redux.applyMiddleware(thunk, logger))
-);
+)
 
-export default configureStore;
+export default configureStore

@@ -1,25 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Changa&display=swap');
 
-
-$font-color: #7A7572;
-
 * {
-  box-sizing: border-box;
-  max-width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0.25em;
-  width: 100%;
-  font: 16px 'Changa';
-  background-color: black;
-  color: $font-color;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0.25em;
+    width: 100%;
+    font: 16px 'Changa';
+    background-color: black;
+    color: white;
 }
 
-stars-container{
-    
+stars-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -28,44 +25,29 @@ stars-container{
     height: auto;
 }
 
-.divimg1{
-    display: grid;
-    grid-template-columns: 100%;
+.divimg1 {
+    display: flex;
     justify-content: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    //COLOCAR AQUI UMA CONDIÇÃO PARA O TAMANHO DA TELA
 }
 
-// .divimg2{
-//     position: absolute;
-//     top: 0%;
-//     left: 27%;
-//     //visibility: hidden;
-// }
-
-.img1{
-    grid-row: 1;
-    grid-column: 1;
-    z-index: 1;
+img {
+    max-width: 400px;
+    width: 100%;
 }
 
-.img2{
-    grid-row: 1;
-    grid-column: 1;
-    visibility: hidden;
+.loading {
+    width: 5rem;
+    min-width: 5rem;
 }
 
-img{
-    width: 15rem;
-    min-width: 100%;
-}
-
-.Personagem{
+.valorPesquisa {
     border: 0;
     border-bottom: 2px solid red;
     width: 100%;
-    font-size: 30px;
+    max-width: 400px;
+    font-size: 2rem;
     line-height: 35px;
     height: 70px;
     text-align: center;
@@ -79,80 +61,81 @@ img{
 }
 
 h1 {
-  text-align: center;
-  margin: 1.5em 0 0;
-  font-size: 3em;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 2px black;
+    text-align: center;
+    margin: 1.5em 0 0;
+    font-size: 3em;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px black;
 }
 
 .accordion {
-  margin: 1em auto;
-  max-width: 30em;
+    margin: 1em auto;
+    max-width: 30em;
 }
 
 .toggle {
-  display: none;
+    display: none;
 }
 
 .option {
-  position: relative;
+    position: relative;
 }
 
 .title,
 .content {
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: all 0.2s;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: all 0.2s;
 }
 
 .title {
-  background: #fff;
-  padding: 0.2em;
-  display: block;
-  color: black;
-  font-weight: bold;
-  height: 3rem;
-  text-shadow: 2px 2px 2px red;
+    background: #fff;
+    padding: 0.2em;
+    display: block;
+    color: black;
+    font-weight: bold;
+    height: 3rem;
+    text-shadow: 2px 2px 2px red;
 }
-.title:after, .title:before {
-  content: '';
-  position: absolute;
-  right: 1.25em;
-  top: 0.7em;
-  width: 2px;
-  height: 0.75em;
-  background-color: red;
-  transition: all 0.2s;
+.title:after,
+.title:before {
+    content: '';
+    position: absolute;
+    right: 1.25em;
+    top: 0.7em;
+    width: 2px;
+    height: 0.75em;
+    background-color: red;
+    transition: all 0.2s;
 }
 .title:after {
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 .content {
-  max-height: 0;
-  overflow: hidden;
-  background-color: #fff;
-  p {
-    margin: 0;
-    padding: 0.5em 1em 1em;
-    font-size: 0.9em;
-    line-height: 1.5;
-    color: white;
-  }
+    max-height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    p {
+        margin: 0;
+        padding: 0.5em 1em 1em;
+        font-size: 0.9em;
+        line-height: 1.5;
+        color: white;
+    }
 }
 
 .toggle:checked {
-  & + .title,
-  & + .title + .content {
-    box-shadow: 3px 3px 6px red, -3px 3px 6px red;
-    background-color: black;
-    color: #ddd;
-  }
-  & + .title + .content {
-    max-height: 500px;
-  }
-  & + .title:before {
-    transform: rotate(90deg) !important;
-  }
+    & + .title,
+    & + .title + .content {
+        box-shadow: 3px 3px 6px red, -3px 3px 6px red;
+        background-color: black;
+        color: #ddd;
+    }
+    & + .title + .content {
+        max-height: 500px;
+    }
+    & + .title:before {
+        transform: rotate(90deg) !important;
+    }
 }
